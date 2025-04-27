@@ -5,9 +5,9 @@ header('Access-Control-Allow-Headers: Content-Type, Authorization');
 header('Content-Type: application/json; charset=utf-8');
 
 $database = 'localhost';
-$username = 'root';
-$password = "";
-$dbname = 'painter';
+$username = 'u937067793_club_404_mem';
+$password = "Club-404-!_!";
+$dbname = 'u937067793_club_404';
 
 $conn = mysqli_connect($database, $username, $password, $dbname);
 
@@ -19,7 +19,7 @@ if (!$conn) {
               last_name,
               nationality,
               artistic_style
-            FROM painter";
+            FROM painter_information";
 
     $result = mysqli_query($conn, $sql);
 
@@ -59,7 +59,7 @@ if (!$conn) {
       return;
     }
 
-    $sql = "INSERT INTO painter (
+    $sql = "INSERT INTO painter_information (
       first_name,
       last_name,
       nationality,
@@ -105,7 +105,7 @@ if (!$conn) {
       $dataNationality &&
       $dataArtisticStyle
     ) {
-      $sql = "UPDATE painter
+      $sql = "UPDATE painter_information
               SET first_name = '{$dataFirstname}',
                   last_name = '{$dataLastname}',
                   nationality = '{$dataNationality}',
@@ -134,7 +134,7 @@ if (!$conn) {
         exit;
     }
 
-    $sql = "DELETE FROM painter WHERE artist_id = {$id}";
+    $sql = "DELETE FROM painter_information WHERE artist_id = {$id}";
 
     if (!mysqli_query($conn, $sql)) {
         echo "An error occurred while deleting the record.";

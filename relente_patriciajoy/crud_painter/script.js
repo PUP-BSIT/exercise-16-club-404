@@ -1,3 +1,6 @@
+const endPoint = `https://dimgrey-parrot-643194.hostingersite.com/` +
+  `exercises/games.php`;
+
 // CREATE Artist
 function createData() {
   const firstname = document.querySelector("#firstname").value;
