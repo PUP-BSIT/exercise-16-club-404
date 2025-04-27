@@ -7,9 +7,10 @@ function createData() {
   const lastname = document.querySelector("#lastname").value;
   const nationality = document.querySelector("#nationality").value;
   const artstyle = document.querySelector("#art_style").value;
+  const artwork = document.querySelector("#art_work").value;
 
   // Validate form fields
-  if (!firstname || !lastname || !nationality || !artstyle) {
+  if (!firstname || !lastname || !nationality || !artstyle || !artwork) {
     alert("Please fill out all fields.");
     return;
   }
@@ -23,7 +24,8 @@ function createData() {
       firstname,
       lastname,
       nationality,
-      artstyle
+      artstyle,
+      artwork
     }),
   })
 
@@ -75,6 +77,7 @@ function readData() {
           <th>Last Name</th>
           <th>Nationality</th>
           <th>Artistic Style</th>
+          <th>Art Work</th>
         </tr>
       `;
 
@@ -87,6 +90,7 @@ function readData() {
           <td contenteditable="false">${user.lastname}</td>
           <td contenteditable="false">${user.nationality}</td>
           <td contenteditable="false">${user.artistic_style}</td>
+          <td contenteditable="false">${user.artwork}</td>
           <td>
             <button onclick="toggleEdit(this, ${user.artist_id})">
               Update
@@ -108,7 +112,7 @@ function toggleEdit(button, artist_id) {
 
   // Constants for editable table cell range
   const EDITABLE_START_INDEX = 1;
-  const EDITABLE_END_INDEX = 4;
+  const EDITABLE_END_INDEX = 5;
 
   const isUpdateMode = button.innerText === "Update";
 
@@ -124,6 +128,7 @@ function toggleEdit(button, artist_id) {
   const lastname = cells[2].innerText;
   const nationality = cells[3].innerText;
   const artistic_style = cells[4].innerText;
+  const artwork = cells[5].innerText;
 
   fetch("main.php", {
     method: "PATCH",
@@ -135,7 +140,8 @@ function toggleEdit(button, artist_id) {
       firstname,
       lastname,
       nationality,
-      artistic_style
+      artistic_style,
+      artwork
     }),
   })
     .then(res => res.text())
