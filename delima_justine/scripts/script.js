@@ -99,7 +99,7 @@ function descendingOrder() {
 
   for (let index = 0; index < comments.length; index++) {
     collectionOfComments[index].children[0].innerHTML = 
-      comments[index].username;
+        comments[index].username;
     collectionOfComments[index].children[1].innerHTML = comments[index].comment;
     collectionOfComments[index].children[2].innerHTML = comments[index].date;
   }

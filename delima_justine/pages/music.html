@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/music.css">
+  <title>Songify</title>
+</head>
+<body>
+  <div id="section_1">
+    <h2>Songify</h2>
+    <form>
+      <input 
+        name="song_id"
+        type="text"
+        placeholder="Song ID(auto-assigned)"
+        id="song_id"
+        disabled/>
+      
+      <input 
+        name="title" 
+        type="text"
+        placeholder="Song Title"
+        id="title"/>
+      
+      <input 
+        name="artist"  
+        type="text"
+        placeholder="Song Artist"
+        id="artist"/>
+      
+      <input 
+        name="year_released"
+        type="text"
+        placeholder="Year Released"
+        id="year_released"/>
+      
+      <input 
+        name="genre"
+        type="text"
+        placeholder="Song Genre"
+        id="genre"/>
+
+      <input 
+        name="album"
+        type="text"
+        placeholder="Song Album"
+        id="album"/>
+
+      <div id="buttons_container">
+        <button type="button" onClick="insertSong()">Insert</button>
+        <button type="button" onClick="updateSong()">Update</button>
+        <button type="button" onClick="clearSongForm()">Clear</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="section_2">
+    <table id="song_list">
+      <thead>
+        <tr>
+          <th>Song ID</th>
+          <th>Title</th>
+          <th>Artist</th>
+          <th>Year</th>
+          <th>Genre</th>
+          <th>Album</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="container"></tbody>
+    </table>
+  </div>
+   <script src="/scripts/song_script.js"></script>
+</body>
+</html>

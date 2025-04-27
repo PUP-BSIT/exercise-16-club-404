@@ -5,7 +5,6 @@ function getData() {
 
 	fetch(`https://restcountries.com/v3.1/name/${country}`)
     .then((response) => {
-      
       if (!response.ok) {
         countrySection.innerHTML = 'No results found.';
         relatedCountriesSection.innerHTML = '';
@@ -73,7 +72,7 @@ function getData() {
       };
 
       // Clear the array
-      while(relatedCountries.length > 0) {
+      while(relatedCountries.length) {
         relatedCountries.pop();
       }
     })
