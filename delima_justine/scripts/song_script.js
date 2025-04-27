@@ -8,7 +8,7 @@ const endpoint = "https://localhost/index.php";
 
 // Function to insert a new song into the database/table
 function insertSong() {
-  fetch("./index.php", {
+  fetch("../php/index.php", {
     method: "POST",
     headers: {
       "Content-type": "application/x-www-form-urlencoded",
@@ -26,7 +26,7 @@ function insertSong() {
 
 // Function to delete a song from the database/table
 function deleteSong(id) {
-  fetch("./index.php", {
+  fetch("../php/index.php", {
     method: "DELETE",
     headers: {
       "Content-type": "application/x-www-form-urlencoded",
@@ -61,7 +61,7 @@ function clearSongForm() {
 
 // Function to update a song in the database/table
 function updateSong() {
-  fetch("./index.php", {
+  fetch("../php/index.php", {
     method: "PATCH",
     headers: {
       "Content-type": "application/x-www-form-urlencoded",
@@ -85,7 +85,7 @@ function updateSong() {
 // Function to display all songs to the user interface/HTML table
 function displayData() {
   const tableBody = document.querySelector("#container");
-  fetch("./index.php")
+  fetch("../php/index.php")
   .then((response) => response.json())
   .then((songList) => {
     tableBody.innerHTML = "";
