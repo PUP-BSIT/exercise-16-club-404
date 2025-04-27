@@ -6,7 +6,8 @@ const gameReleaseYear = document.querySelector("#game_release_year");
 const gameDeveloper = document.querySelector("#game_developer");
 const gamePlatform = document.querySelector("#game_platform");
 
-const endPoint = "http://localhost/crud_games/games.php";
+const endPoint = `https://dimgrey-parrot-643194.hostingersite.com/`+
+  `exercises/games.php`;
 
 async function displayGameInfo() {
   const response = await fetch(endPoint);
