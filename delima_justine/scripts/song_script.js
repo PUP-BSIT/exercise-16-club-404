@@ -4,11 +4,12 @@ const songArtist = document.querySelector("#artist");
 const songYear = document.querySelector("#year_released");
 const songGenre = document.querySelector("#genre");
 const songAlbum = document.querySelector('#album');
-const endpoint = "https://localhost/index.php";
+const endpoint = `https://dimgrey-parrot-643194.hostingersite.com/` +
+  `exercises/index.php`;
 
 // Function to insert a new song into the database/table
 function insertSong() {
-  fetch("../php/index.php", {
+  fetch(endpoint, {
     method: "POST",
     headers: {
       "Content-type": "application/x-www-form-urlencoded",
@@ -26,7 +27,7 @@ function insertSong() {
 
 // Function to delete a song from the database/table
 function deleteSong(id) {
-  fetch("../php/index.php", {
+  fetch(endpoint, {
     method: "DELETE",
     headers: {
       "Content-type": "application/x-www-form-urlencoded",
@@ -61,7 +62,7 @@ function clearSongForm() {
 
 // Function to update a song in the database/table
 function updateSong() {
-  fetch("../php/index.php", {
+  fetch(endpoint, {
     method: "PATCH",
     headers: {
       "Content-type": "application/x-www-form-urlencoded",
@@ -85,7 +86,7 @@ function updateSong() {
 // Function to display all songs to the user interface/HTML table
 function displayData() {
   const tableBody = document.querySelector("#container");
-  fetch("../php/index.php")
+  fetch(endpoint)
   .then((response) => response.json())
   .then((songList) => {
     tableBody.innerHTML = "";
