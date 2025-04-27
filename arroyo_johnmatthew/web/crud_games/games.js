@@ -18,6 +18,7 @@ async function displayGameInfo() {
     const row = document.createElement("tr");
     const edit = editButton(item);
     const remove = deleteButton(item);
+
     row.innerHTML = `
       <td>${item.id}</td>
       <td>${item.title}</td>
@@ -128,6 +129,7 @@ function output(id, title, genre, release_year, developer, platform) {
 function deleteButton(item) {
   const cell = document.createElement("td");
   const button = document.createElement("button");
+  
   button.addEventListener("click", deleteGameInfo.bind(null, item.id));
   button.textContent= "Delete";
   cell.append(button);
