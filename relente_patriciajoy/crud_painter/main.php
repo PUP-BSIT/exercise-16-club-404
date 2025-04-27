@@ -18,7 +18,8 @@ if (!$conn) {
               first_name,
               last_name,
               nationality,
-              artistic_style
+              artistic_stylez,
+              art_work
             FROM painter_information";
 
     $result = mysqli_query($conn, $sql);
@@ -35,6 +36,7 @@ if (!$conn) {
             'lastname' => $row['last_name'],
             'nationality' => $row['nationality'],
             'artistic_style' => $row['artistic_style'],
+            'art_work' => $row['art_work'],
         ];
       }
     } else {
@@ -48,12 +50,14 @@ if (!$conn) {
     $lastname = isset($_POST['lastname']) ? $_POST['lastname'] : '';
     $nationality = isset($_POST['nationality']) ? $_POST['nationality'] : '';
     $artstyle = isset($_POST['artstyle']) ? $_POST['artstyle'] : '';
+    $artstyle = isset($_POST['artwork']) ? $_POST['artwork'] : '';
 
     if (
       empty($firstname) ||
       empty($lastname) ||
       empty($nationality) ||
-      empty($artstyle)
+      empty($artstyle) ||
+      empty($artwork)
     ) {
       echo "Some fields are empty.";
       return;
@@ -63,13 +67,15 @@ if (!$conn) {
       first_name,
       last_name,
       nationality,
-      artistic_style
+      artistic_style,
+      art_work
     )
     VALUES (
         '$firstname',
         '$lastname',
         '$nationality',
-        '$artstyle'
+        '$artstyle',
+        '$artwork'
     )";
 
     if (mysqli_query($conn, $sql)) {
@@ -89,6 +95,7 @@ if (!$conn) {
     $dataLastname = $_PATCH["lastname"] ?? "";
     $dataNationality = $_PATCH["nationality"] ?? "";
     $dataArtisticStyle = $_PATCH["artistic_style"] ?? "";
+    $dataArtWork = $_PATCH["art_work"] ?? "";
 
     // Escape inputs
     $dataArtistId = intval($dataArtistId);
@@ -96,6 +103,7 @@ if (!$conn) {
     $dataLastname = mysqli_real_escape_string($conn, $dataLastname);
     $dataNationality = mysqli_real_escape_string($conn, $dataNationality);
     $dataArtisticStyle = mysqli_real_escape_string($conn, $dataArtisticStyle);
+    $dataArtWork = mysqli_real_escape_string($conn, $dataArtWork);
 
     // Check if required fields are present
     if (
@@ -103,13 +111,15 @@ if (!$conn) {
       $dataFirstname &&
       $dataLastname &&
       $dataNationality &&
-      $dataArtisticStyle
+      $dataArtisticStyle &&
+      $dataArtWork
     ) {
       $sql = "UPDATE painter_information
               SET first_name = '{$dataFirstname}',
                   last_name = '{$dataLastname}',
                   nationality = '{$dataNationality}',
                   artistic_style = '{$dataArtisticStyle}'
+                  art_work = '{$dataArtWork}'
               WHERE artist_id = {$dataArtistId}";
 
       if (!mysqli_query($conn, $sql)) {
