@@ -50,7 +50,7 @@ if (!$conn) {
     $lastname = isset($_POST['lastname']) ? $_POST['lastname'] : '';
     $nationality = isset($_POST['nationality']) ? $_POST['nationality'] : '';
     $artstyle = isset($_POST['artstyle']) ? $_POST['artstyle'] : '';
-    $artstyle = isset($_POST['artwork']) ? $_POST['artwork'] : '';
+    $artwork = isset($_POST['artwork']) ? $_POST['artwork'] : '';
 
     if (
       empty($firstname) ||
@@ -118,7 +118,7 @@ if (!$conn) {
               SET first_name = '{$dataFirstname}',
                   last_name = '{$dataLastname}',
                   nationality = '{$dataNationality}',
-                  artistic_style = '{$dataArtisticStyle}'
+                  artistic_style = '{$dataArtisticStyle}',
                   art_work = '{$dataArtWork}'
               WHERE artist_id = {$dataArtistId}";
 

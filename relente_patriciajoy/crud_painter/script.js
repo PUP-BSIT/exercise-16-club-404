@@ -1,5 +1,5 @@
 const endPoint = `https://dimgrey-parrot-643194.hostingersite.com/` +
-  `exercises/games.php`;
+  `exercises/main.php`;
 
 // CREATE Artist
 function createData() {
@@ -15,7 +15,7 @@ function createData() {
     return;
   }
 
-  fetch("main.php", {
+  fetch(endPoint, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -43,7 +43,7 @@ function createData() {
 function deleteData(artist_id) {
   if (!confirm("Are you sure you want to delete this artist?")) return;
 
-  fetch("main.php", {
+  fetch(endPoint, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -64,7 +64,7 @@ function deleteData(artist_id) {
 
 // READ Artists and Display Table
 function readData() {
-  fetch("main.php")
+  fetch(endPoint)
     .then((response) => response.json())
     .then((userList) => {
       const table = document.querySelector("#artist_list");
@@ -90,7 +90,7 @@ function readData() {
           <td contenteditable="false">${user.lastname}</td>
           <td contenteditable="false">${user.nationality}</td>
           <td contenteditable="false">${user.artistic_style}</td>
-          <td contenteditable="false">${user.artwork}</td>
+          <td contenteditable="false">${user.art_work}</td>
           <td>
             <button onclick="toggleEdit(this, ${user.artist_id})">
               Update
@@ -110,6 +110,12 @@ function toggleEdit(button, artist_id) {
   const row = button.parentElement.parentElement;
   const cells = row.querySelectorAll("td");
 
+  const firstname = cells[1].innerText;
+  const lastname = cells[2].innerText;
+  const nationality = cells[3].innerText;
+  const artistic_style = cells[4].innerText;
+  const art_work = cells[5].innerText;
+
   // Constants for editable table cell range
   const EDITABLE_START_INDEX = 1;
   const EDITABLE_END_INDEX = 5;
@@ -124,13 +130,8 @@ function toggleEdit(button, artist_id) {
     return;
   }
 
-  const firstname = cells[1].innerText;
-  const lastname = cells[2].innerText;
-  const nationality = cells[3].innerText;
-  const artistic_style = cells[4].innerText;
-  const artwork = cells[5].innerText;
-
-  fetch("main.php", {
+  console.log(firstname, lastname, nationality, artistic_style, art_work)
+  fetch(endPoint, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -141,11 +142,11 @@ function toggleEdit(button, artist_id) {
       lastname,
       nationality,
       artistic_style,
-      artwork
+      art_work
     }),
   })
-    .then(res => res.text())
-    .then(data => {
+    .then((res) => res.text())
+    .then((data) => {
       alert(data);
       for (let i = EDITABLE_START_INDEX; i <= EDITABLE_END_INDEX; i++) {
         cells[i].setAttribute("contenteditable", "false");
