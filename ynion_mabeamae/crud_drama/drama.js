@@ -6,7 +6,8 @@ const inputEpisode = document.querySelector("#drama_episode");
 const inputDirector = document.querySelector("#drama_director");
 const inputYear = document.querySelector("#release_year");
 
-const endpoint = "http://localhost/crud_drama/drama.php";
+const endpoint = 
+      "https://dimgrey-parrot-643194.hostingersite.com/exercises/drama.php";
 
 async function getDrama() {
   const response = await fetch(endpoint);

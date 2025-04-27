@@ -5,9 +5,9 @@
   header('Content-Type: application/json; charset=utf-8');
 
   $server = 'localhost';
-  $username = 'root';
-  $password = "";
-  $db = 'drama';
+  $username = 'u937067793_ynionmabeamae';
+  $password = 'Averyleuxe08$';
+  $db = 'u937067793_drama';
 
   $conn = mysqli_connect($server, $username, $password, $db);
 
