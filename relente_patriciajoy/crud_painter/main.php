@@ -18,7 +18,7 @@ if (!$conn) {
               first_name,
               last_name,
               nationality,
-              artistic_stylez,
+              artistic_style,
               art_work
             FROM painter_information";
 
