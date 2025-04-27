@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../crud_games/games.css">
+    <title>GAME INFORMATION</title>
+  </head>
+  <body>
+    <form id="input_container">
+      <h1>GAME INFO</h1>
+      <input type="text" id="game_id" placeholder="id" disabled>
+      <input type="text" id="game_title" placeholder="title">
+      <input type="text" id="game_genre" placeholder="genre">
+      <input type="text" id="game_release_year" placeholder="release year">
+      <input type="text" id="game_developer" placeholder="developer">
+      <input type="text" id="game_platform" placeholder="platform">
+      <button type="button" id="add_button"
+        onClick="insertGameInfo()">
+          Add Game Info
+      </button>
+      <button type="button" 
+        id="update_button"
+        onClick="updateGameInfo()">
+          Update Game Info
+      </button>
+    </form>
+    <table id="output_container">
+      <thead>
+        <tr id="table_header">	
+          <th>id</th>
+          <th>title</th>
+          <th>genre</th>
+          <th>release_year</th>
+          <th>developer</th>
+          <th>platform</th>		
+        </tr>
+      </thead>
+      <tbody id="game_info_table">
+    </table>
+    <script src="../crud_games/games.js"></script>
+  </body>
+</html>
