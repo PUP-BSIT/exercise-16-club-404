@@ -130,7 +130,6 @@ function toggleEdit(button, artist_id) {
     return;
   }
 
-  console.log(firstname, lastname, nationality, artistic_style, art_work)
   fetch(endPoint, {
     method: "PATCH",
     headers: {
